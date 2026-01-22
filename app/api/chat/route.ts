@@ -13,5 +13,5 @@ export async function POST(req: Request) {
     system: "You are a helpful assistant.",
   });
 
-  return result.toDataStreamResponse();
+  return result.toTextStreamResponse();
 }
