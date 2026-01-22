@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 import { useChat } from "@ai-sdk/react";
 
 import { Button } from "@/components/ui/button";
@@ -7,7 +9,18 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 
 export function ChatInterface() {
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat();
+  const [input, setInput] = useState("");
+  const { messages, sendMessage, status } = useChat();
+
+  const isLoading = status === "submitted" || status === "streaming";
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!input.trim() || isLoading) return;
+
+    sendMessage(input);
+    setInput("");
+  }
 
   return (
     <Card className="flex h-[600px] w-full max-w-2xl flex-col">
@@ -26,7 +39,16 @@ export function ChatInterface() {
                   message.role === "user" ? "bg-primary text-primary-foreground" : "bg-muted"
                 }`}
               >
-                <p className="whitespace-pre-wrap">{message.content}</p>
+                {message.parts.map((part, index) => {
+                  if (part.type === "text") {
+                    return (
+                      <p key={index} className="whitespace-pre-wrap">
+                        {part.text}
+                      </p>
+                    );
+                  }
+                  return null;
+                })}
               </div>
             </div>
           ))}
@@ -34,13 +56,13 @@ export function ChatInterface() {
         <form onSubmit={handleSubmit} className="flex gap-2 border-t pt-4">
           <Textarea
             value={input}
-            onChange={handleInputChange}
+            onChange={(e) => setInput(e.target.value)}
             placeholder="Type your message..."
             className="min-h-[60px] flex-1 resize-none"
             onKeyDown={(e) => {
               if (e.key === "Enter" && !e.shiftKey) {
                 e.preventDefault();
-                handleSubmit(e as unknown as React.FormEvent<HTMLFormElement>);
+                handleSubmit(e);
               }
             }}
           />
