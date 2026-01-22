@@ -18,7 +18,7 @@ export function ChatInterface() {
     e.preventDefault();
     if (!input.trim() || isLoading) return;
 
-    sendMessage(input);
+    sendMessage({ parts: [{ type: "text", text: input }] });
     setInput("");
   }
 
