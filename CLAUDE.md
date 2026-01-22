@@ -84,7 +84,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 // 2. External libraries
-import { useChat } from "ai/react";
+import { useChat } from "@ai-sdk/react";
 
 // 3. Internal - UI components
 import { Button } from "@/components/ui/button";
