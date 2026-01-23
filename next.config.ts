@@ -7,6 +7,11 @@ const nextConfig: NextConfig = {
 };
 
 export default withSentryConfig(nextConfig, {
+  // Sentry config file paths
+  clientConfigPath: "./config/sentry/client.config.ts",
+  serverConfigPath: "./config/sentry/server.config.ts",
+  edgeConfigPath: "./config/sentry/edge.config.ts",
+
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options
 

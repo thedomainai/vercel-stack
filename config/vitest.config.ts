@@ -9,10 +9,11 @@ export default defineConfig({
     include: ["tests/unit/**/*.test.{ts,tsx}", "tests/integration/**/*.test.{ts,tsx}"],
     globals: true,
     setupFiles: ["./tests/setup.ts"],
+    root: resolve(__dirname, ".."),
   },
   resolve: {
     alias: {
-      "@": resolve(__dirname, "./"),
+      "@": resolve(__dirname, ".."),
     },
   },
 });
