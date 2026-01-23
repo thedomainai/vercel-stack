@@ -1,5 +1,34 @@
 # vercel-stack - Coding Agent Guide
 
+## Product Context
+
+> **この情報は必ず最新に保ってください。**
+> 詳細は `docs/` フォルダを参照してください。
+
+### Vision (要約)
+
+[1-2文でプロダクトビジョンを記載 → 詳細: docs/1_strategy/VISION.md]
+
+### Current Phase
+
+| フェーズ | 状態 | 優先事項 |
+|---------|------|----------|
+| [フェーズ名] | [進行中/完了] | [現在の最優先タスク] |
+
+→ 詳細: docs/5_operations/ROADMAP.md
+
+### Key Documents
+
+| ドキュメント | 内容 | 参照タイミング |
+|-------------|------|---------------|
+| `docs/1_strategy/VISION.md` | ビジョン・ペルソナ | プロダクト判断時 |
+| `docs/2_requirements/USER_STORIES.md` | ユーザーストーリー | 機能実装時 |
+| `docs/2_requirements/FEATURES.md` | 機能一覧・優先度 | 実装計画時 |
+| `docs/3_design/DESIGN_SYSTEM.md` | デザインシステム | UI実装時 |
+| `docs/5_operations/ROADMAP.md` | ロードマップ | スケジュール確認時 |
+
+---
+
 ## Project Overview
 
 A Full-Stack Starter optimized for Coding Agents. Built with Next.js 15, Supabase, and Vercel AI SDK.
