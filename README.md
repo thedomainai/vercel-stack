@@ -71,6 +71,12 @@ vercel-stack/
 │   ├── chat/              # AI Chat
 │   └── dashboard/         # Dashboard
 ├── components/ui/         # shadcn/ui components
+├── config/                # Configuration files
+│   ├── biome.json        # Linter/formatter
+│   ├── drizzle.config.ts # Database ORM
+│   ├── vitest.config.ts  # Unit tests
+│   ├── playwright.config.ts # E2E tests
+│   └── sentry/           # Error tracking
 ├── lib/                   # Utilities
 │   ├── ai/               # AI SDK setup
 │   ├── db/               # Drizzle schema
